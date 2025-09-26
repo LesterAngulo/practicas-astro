@@ -1,0 +1,38 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+
+		<Navbar/>
+		<h1>Astro</h1>
+		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+		<p id="current-time">Momento actual real: </p>
+
+		<footer>
+			Año: 2023
+		</footer>
+
+		<script>
+			const currentYear: number = new Date().getFullYear();
+			const currentMoment: string = new Date().toLocaleTimeString();
+
+			const footer = document.querySelector('footer') as HTMLElement;
+			footer.innerText = `Año: ${currentYear}`;
+
+			const momento  = document.querySelector('#current-time') as HTMLParagraphElement;
+			momento.innerText = `Momento actual real: ${currentMoment}`
+
+		</script>
+	</body>
+</html>
